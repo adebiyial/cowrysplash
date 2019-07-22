@@ -39,18 +39,10 @@ body::before {
   z-index: -1;
 }
 
-/* -> Photos Section
-      -> Form Container
-      -> Gallery
-*/
-
 .photos-section {
-  outline: 2px dashed red;
   min-height: 100vh;
   display: grid;
   grid-template-columns: [left-gutter] 1fr [content] 12fr [right-gutter] 1fr;
-  /* grid-template-rows: [top] auto [content] auto [bottom] auto; */
-  grid-template-rows: [top] 300px [content] 1fr;
   grid-template-rows: [top-gutter] 50px [top] 300px [content] 1fr [bottom-gutter] 50px;
 }
 
@@ -133,6 +125,7 @@ input.search-field::placeholder {
   grid-column: content;
   column-gap: 60px;
   column-count: 3;
+  height: 100%;
   /* How did you get the column width */
   columns: 394.967px 3;
 }
@@ -173,7 +166,7 @@ input.search-field::placeholder {
   bottom: 0;
   height: 80px;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
-  opacity: 0;
+  opacity: 1;
   padding: 28px 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -193,7 +186,7 @@ input.search-field::placeholder {
   align-items: flex-start;
   gap: 5px;
 
-  transform: translateY(100%);
+  transform: translateY(0%);
 }
 
 .photo-content::before,
@@ -207,16 +200,26 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  /* width: 40px; */
-
-  /* height: 40px; */
 }
 
 li {
   list-style-type: none;
 }
-/* 
-li:first-of-type {
-  --g: 12fr;
-  width: calc(80% * 12fr);
-} */
+
+.new-search {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#skeleton img {
+  opacity: 1;
+}
+
+#skeleton .author-details .author-name,
+#skeleton .author-details .photo-location {
+  color: white;
+}
