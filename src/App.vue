@@ -4,6 +4,7 @@
     <Gallery
       v-bind:photos="photos"
       v-bind:newSearch="newSearch"
+      v-bind:loadingImage="loadingImage"
       @preview-image="previewImage"
     />
     <Modal
@@ -31,13 +32,15 @@ export default {
       photos: [],
       showModal: false,
       photo: {},
-      newSearch: true
+      newSearch: true,
+      loadingImage: true
     };
   },
   methods: {
     populatePhotoList(photoDetails) {
       this.photos = [...photoDetails];
       this.newSearch = false;
+      this.loadingImage = false;
     },
     previewImage(id) {
       this.photo = this.photos.find(photo => photo.id === id);
