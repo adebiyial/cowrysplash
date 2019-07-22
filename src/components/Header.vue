@@ -3,11 +3,11 @@
     <div class="container">
       <h1 v-if="this.loadingState.isSearching">
         Searching for
-        <span className="search-query">"{{ this.searchQuery }}"</span>
+        <span class="search-query">"{{ this.searchQuery }}"</span>
       </h1>
       <h1 v-else-if="this.loadingState.isDoneSearching">
-        Search results for
-        <span className="search-query">"{{ this.searchQuery }}"</span>
+        Search Results for
+        <span class="search-query">"{{ this.searchQuery }}"</span>
       </h1>
       <form
         v-else-if="this.loadingState.isNewSearch"
@@ -39,12 +39,13 @@
 
 <script>
 import axios from "axios";
+import { BaseUrl } from "../utils/fx";
 
 export default {
   name: "Header",
   data() {
     return {
-      searchQuery: "African",
+      searchQuery: "",
       photoDetails: [],
       loading: false,
       loadingState: {
@@ -59,14 +60,8 @@ export default {
       this.searchQuery = "";
     }
   },
-
   methods: {
     resolveLoadingState() {
-      // There can be three states
-      // 1. Not Done Loading -> Yet to search for photo
-      // 2. Loading -> Searching for photo
-      // 3. Done Loading -> Done searching for photo
-
       // Are we searching?
       this.loadingState.isSearching = this.loading === true;
 
@@ -84,37 +79,49 @@ export default {
       e.preventDefault();
       try {
         this.loading = true;
+        this.resolveLoadingState();
 
         // Env client_id!
         const client_id =
           "2e376f012d25b34b131d22e0a5e62d08e6248fcb77acbb7c351373e8ba34a6b5";
         const numberOfPhotos = 7;
-        const baseUrl = "https://api.unsplash.com/photos/search";
 
-        const endpoint = `${baseUrl}?query=${this.searchQuery.trim()}&per_page=${numberOfPhotos}&client_id=${client_id}`;
+        const endpoint = `?query=${this.searchQuery.trim()}&per_page=${numberOfPhotos}&client_id=${client_id}`;
 
-        const { data: photos } = await axios.get(endpoint);
+        const { data: photos } = await BaseUrl.get(endpoint);
 
-        if (photos) {
-          const slimmedPhotos = photos.map(photo => {
-            // Extract only necessary data
-            const { name: authorName, location: authorLocation } = photo.user;
-            const { regular: imgSrc } = photo.urls;
-            const { alt_description: imgDesc, id } = photo;
-
-            return { authorName, authorLocation, imgSrc, imgDesc, id };
-          });
-
-          this.photoDetails = [...slimmedPhotos];
-
-          this.$emit("search-photos", this.photoDetails);
-
-          this.loading = false;
-          this.resolveLoadingState();
+        if (!photos || photos.length <= 0) {
+          this.loadingState.isSearching = false;
+          this.loadingState.isDoneSearching = false;
+          this.loadingState.isNewSearch = true;
+          this.searchQuery = "";
+          throw new Error("Uh-oh! Can't find photos. Try again.");
         }
+
+        const slimmedPhotos = photos.map(photo => {
+          // Extract only necessary data
+          const { name: authorName, location: photoLocation } = photo.user;
+          const { regular: photoSrcLarge, small: photoSrcSmall } = photo.urls;
+          const { alt_description: photoDesc, id } = photo;
+
+          return {
+            authorName,
+            photoLocation,
+            photoSrcLarge,
+            photoSrcSmall,
+            photoDesc,
+            id
+          };
+        });
+
+        this.photoDetails = [...slimmedPhotos];
+
+        this.$emit("search-photos", this.photoDetails);
+
+        this.loading = false;
+        this.resolveLoadingState();
       } catch (error) {
-        console.log(error);
-        alert(`Error fetching photos ${this.searchQuery}`);
+        alert(error);
       }
     }
   }
