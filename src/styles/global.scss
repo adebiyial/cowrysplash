@@ -166,8 +166,11 @@ input.search-field::placeholder {
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-
   transform: translateY(0%);
+}
+
+.author-details .author-name {
+  font-weight: var(--normal);
 }
 
 .photo-content::before,
