@@ -1,31 +1,3 @@
-/* Feature Queries Please */
-/* variables */
-:root {
-  /* colors */
-  --backdrop-bg-color: #dde2e9;
-  --backdrop-bg-height: 400px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-}
-
-html {
-  font-family: "Poppins";
-  overflow-x: hidden;
-  height: 100%;
-}
-
-body {
-  background-color: white;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 /* Backdrop */
 body::before {
   height: var(--backdrop-bg-height);
@@ -46,14 +18,13 @@ body::before {
   grid-template-rows: [top-gutter] 50px [top] 300px [content] 1fr [bottom-gutter] 50px;
 }
 
-.photos-section > * {
-  grid-column: content;
-}
-
 .app-header {
   display: flex;
   align-items: center;
   grid-row: top;
+}
+.photos-section > * {
+  grid-column: content;
 }
 
 .app-header .container {
@@ -120,13 +91,11 @@ input.search-field::placeholder {
 
 .photos-list .container {
   max-width: 80%;
-  /* outline: 2px solid red; */
   margin: 0 auto;
   grid-column: content;
   column-gap: 60px;
   column-count: 3;
   height: 100%;
-  /* How did you get the column width */
   columns: 394.967px 3;
 }
 
@@ -192,18 +161,6 @@ input.search-field::placeholder {
 .photo-content::before,
 .author-details {
   transition: 200ms;
-}
-
-/* SOME RESET */
-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-li {
-  list-style-type: none;
 }
 
 .new-search {
