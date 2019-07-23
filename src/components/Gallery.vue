@@ -12,7 +12,6 @@
       <li class="photos" v-for="photo in photos" v-bind:key="photo.id">
         <Photo
           v-bind:photo="photo"
-          v-bind:isImgInDom="isImgInDom"
           @preview-image="$emit('preview-image', photo.id)"
         />
       </li>
@@ -25,13 +24,7 @@ import Photo from "./Photo";
 
 export default {
   name: "Gallery",
-  props: [
-    "photos",
-    "isNewSearch",
-    "isSearching",
-    "isDoneSearching",
-    "isImgInDom"
-  ],
+  props: ["photos", "isNewSearch", "isSearching", "isDoneSearching"],
   components: {
     Photo
   }

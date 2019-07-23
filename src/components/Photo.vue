@@ -32,40 +32,6 @@
 <script>
 export default {
   props: ["photo", "isImgInDom"],
-  updated() {
-    console.log("UPDATED");
-  },
-  mounted() {
-    // observe
-    new IntersectionObserver(
-      ([entry]) => {
-        console.log(entry);
-        // if (entry.intersectionRatio === 1) {
-        // console.log(entry.target);
-        // console.log(entry.target.querySelector("img").complete);
-        // console.log("Anchor now in dom");
-        // if (!entry.target.querySelector("img").complete) {
-        //   const f = new IntersectionObserver(
-        //     ([entry]) => {
-        //       console.log(this.$el.querySelector("picture img").complete);
-        //     },
-        //     {
-        //       root: this.$el,
-        //       threshold: 1
-        //     }
-        //   );
-        //   f.observe(this.$el.querySelector("picture"));
-        //   console.log(f);
-        // }
-        // }
-      },
-      {
-        root: null,
-        threshold: 1
-      }
-    ).observe(this.$el);
-    // on success emit. photo - gallery (if done loading and img in dom)
-  },
   methods: {
     previewImage(e) {
       // The browser tries to handle the image preview. Stop it!

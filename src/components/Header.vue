@@ -61,18 +61,6 @@ export default {
   },
   methods: {
     resolveLoadingState(isSearching, isNewSearch, isDoneSearching) {
-      // Are we searching?
-      // this.loadingState.isSearching = this.loading === true;
-
-      // Is this a new search?
-      // this.loadingState.isNewSearch =
-      //   this.photoDetails.length === 0 && !this.loading;
-
-      // Are we done searching?
-      // this.loadingState.isDoneSearching =
-      //   this.loadingState.isSearching === false ||
-      //   this.photoDetails.length !== 0;
-
       this.loadingState.isSearching = isSearching;
       this.loadingState.isNewSearch = isNewSearch;
       this.loadingState.isDoneSearching = isDoneSearching;
@@ -92,12 +80,6 @@ export default {
         this.loadingState.isSearching = false;
         this.loadingState.isNewSearch = false;
       }
-    },
-
-    observeImages() {
-      console.log(document.images);
-      console.log("Observing");
-      return false;
     },
 
     async searchPhotos(e) {
@@ -150,13 +132,8 @@ export default {
         this.$emit("search-photos", this.photoDetails);
 
         // We are done searching
-        // Call observer here.
         this.resolveLoadingState(false, false, true);
         this.$emit("is-done-searching", this.loadingState.isDoneSearching);
-        const imageInDom = this.observeImages();
-        if (!imageInDom) {
-          this.$emit("is-img-in-dom", imageInDom);
-        }
       } catch (error) {
         this.resolveLoadingState(false, true, false);
         this.$emit("is-new-search", this.loadingState.isNewSearch);

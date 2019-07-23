@@ -5,14 +5,12 @@
       @is-searching="resolveIsSearchingState"
       @is-done-searching="resolveIsDoneSearchingState"
       @is-new-search="resolveIsNewSearchState"
-      @is-img-in-dom="resolveImgInDom"
     />
     <Gallery
       v-bind:photos="photos"
       v-bind:isNewSearch="isNewSearch"
       v-bind:isSearching="isSearching"
       v-bind:isDoneSearching="isDoneSearching"
-      v-bind:isImgInDom="isImgInDom"
       @preview-image="previewImage"
     />
     <Modal
@@ -42,8 +40,7 @@ export default {
       photo: {},
       isNewSearch: true,
       isSearching: false,
-      isDoneSearching: false,
-      isImgInDom: false
+      isDoneSearching: false
     };
   },
   methods: {
@@ -80,9 +77,6 @@ export default {
         this.isSearching = false;
         this.isDoneSearching = false;
       }
-    },
-    resolveImgInDom(isImgInDom) {
-      this.isImgInDom = isImgInDom;
     }
   }
 };
