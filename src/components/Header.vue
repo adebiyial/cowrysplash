@@ -122,6 +122,10 @@ export default {
         // this.$emit("loading-photos", this.loading);
         this.resolveLoadingState();
       } catch (error) {
+        this.loadingState.isSearching = false;
+        this.loadingState.isDoneSearching = false;
+        this.loadingState.isNewSearch = true;
+        this.searchQuery = "";
         alert(error);
       }
     }
