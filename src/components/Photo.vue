@@ -29,6 +29,10 @@
 <script>
 export default {
   props: ["photo"],
+  mounted() {
+    // const c = document.querySelector(".photos-list .container");
+    // console.log(window.getComputedStyle());
+  },
   methods: {
     previewImage(e) {
       // The browser tries to handle the image preview. Stop it!
