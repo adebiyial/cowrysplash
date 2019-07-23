@@ -10,7 +10,7 @@
         <div class="full-image-wrap" v-bind:style="styleObj"></div>
         <div class="modal-photo-details">
           <span class="author-name">{{ authorName }}</span>
-          <span class="author-location">{{ photoLocation }}</span>
+          <span class="photo-location">{{ photoLocation }}</span>
         </div>
       </div>
     </div>
