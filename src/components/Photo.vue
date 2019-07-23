@@ -20,7 +20,7 @@
       </picture>
     </div>
     <div class="author-details">
-      <h3 class="author-name">{{ photo.authorName }}</h3>
+      <h2 class="author-name">{{ photo.authorName }}</h2>
       <p class="photo-location">{{ photo.photoLocation }}</p>
     </div>
   </a>
@@ -29,10 +29,7 @@
 <script>
 export default {
   props: ["photo"],
-  mounted() {
-    // const c = document.querySelector(".photos-list .container");
-    // console.log(window.getComputedStyle());
-  },
+
   methods: {
     previewImage(e) {
       // The browser tries to handle the image preview. Stop it!
