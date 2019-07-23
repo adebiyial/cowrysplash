@@ -67,15 +67,18 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.modal-photo-details > span {
-  display: block;
-}
-
-.modal-photo-details > span:first-child {
+.modal-photo-details > .author-name {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: var(--regular);
+  color: var(--navy-blue);
+}
+
+.modal-photo-details > .photo-location {
+  color: var(--dark-blue);
 }
 
 .close-modal-btn {
