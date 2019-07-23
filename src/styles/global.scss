@@ -124,14 +124,13 @@ input.search-field::placeholder {
   border-radius: 10px;
   display: block;
   overflow: hidden;
+  transition: box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.photo-content:hover .author-details {
-  transform: translateY(0);
-}
-
-.photo-content:hover::before {
-  opacity: 1;
+.photo-content:hover {
+  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0 30px 60px -30px rgba(0, 0, 0, 0.3),
+    0 -18px 60px -10px rgba(0, 0, 0, 0.025);
 }
 
 .photo-content * {
@@ -166,7 +165,6 @@ input.search-field::placeholder {
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  transform: translateY(0%);
 }
 
 .author-details .author-name {
