@@ -97,7 +97,7 @@ export default {
         // Env client_id!
         const client_id =
           "2e376f012d25b34b131d22e0a5e62d08e6248fcb77acbb7c351373e8ba34a6b5";
-        const numberOfPhotos = 2;
+        const numberOfPhotos = 7;
         const endpoint = `?query=${this.searchQuery.trim()}&per_page=${numberOfPhotos}&client_id=${client_id}`;
 
         const { data: photos } = await BaseUrl.get(endpoint);
