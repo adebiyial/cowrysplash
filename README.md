@@ -14,19 +14,19 @@ yarn run serve
 
 ### Feature set
 
-## 1. Landing Screen: Shows 7 - 8 latest "African" photos from the API
+## 1. Landing Screen: Shows 7 - 8 latest "African" photos from the API ✔
 
 ![Feature Set 1 - show 7 - 8 latest photos](src/assets/fs1.jpg)
 
-## 2. Search Results Screen
+## 2. Search Results Screen ✔
 
 ![Feature Set 2 - show search results](src/assets/fs2.jpg)
 
-## 3. Loading Placeholders
+## 3. Loading Placeholders ❌
 
 > Not Yet Done
 
-## 4. Image Modal
+## 4. Image Modal ✔
 
 ![Feature Set 3 - show image modal](src/assets/fs3.jpg)
 
