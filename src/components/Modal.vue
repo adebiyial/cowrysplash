@@ -1,5 +1,9 @@
 <template>
-  <div class="modal-root" v-bind:id="this.show && 'show'">
+  <div
+    class="modal-root"
+    v-bind:id="this.show && 'show'"
+    @click="$emit('close-modal')"
+  >
     <div class="modal">
       <div class="modal-img-container">
         <button
@@ -7,7 +11,11 @@
           title="close modal"
           @click="$emit('close-modal')"
         ></button>
-        <div class="full-image-wrap" v-bind:style="styleObj"></div>
+        <div
+          class="full-image-wrap"
+          v-bind:style="styleObj"
+          @click="$emit('close-modal')"
+        ></div>
         <div class="modal-photo-details">
           <span class="author-name">{{ authorName }}</span>
           <span class="photo-location">{{ photoLocation }}</span>
