@@ -1,5 +1,5 @@
 <template>
-  <ul class="photos-list" ref="{this.gridRef}">
+  <ul class="photos-list">
     <div class="new-search" v-if="newSearch">
       <h1>: (</h1>
       <h1>You have not searched for any photos.</h1>
