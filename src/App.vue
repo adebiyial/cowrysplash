@@ -51,6 +51,6 @@ export default {
 </script>
 
 <style>
-@import "./styles/global.scss";
 @import "./styles/_normalize.scss";
+@import "./styles/global.scss";
 </style>
