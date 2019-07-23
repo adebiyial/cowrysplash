@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { BaseUrl } from "../utils/fx";
 
 export default {
