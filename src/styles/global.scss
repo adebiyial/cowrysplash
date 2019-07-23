@@ -191,3 +191,37 @@ input.search-field::placeholder {
   background-color: #d7d7d7;
   border-radius: 3px;
 }
+
+@media (max-width: 400px) {
+  body::before {
+    --backdrop-bg-height: 200px;
+    transition: 0.2s;
+  }
+
+  .photos-section {
+    transition: 0.2s;
+    grid-template-rows: [top-gutter] 5px [top] 150px [content] 1fr [bottom-gutter] 50px;
+  }
+
+  input.search-field {
+    height: 100%;
+    padding: 20px 0 20px 60px;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+
+  .search-form > .search-icon {
+    transform: translateX(20px);
+    transition: 0.2s;
+  }
+
+  .app-header .container > h1 {
+    transition: 0.2s;
+    font-size: 25px;
+  }
+
+  .photos-list .container {
+    transition: 0.2s;
+    max-width: 100%;
+  }
+}
