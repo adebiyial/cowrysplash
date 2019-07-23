@@ -1,9 +1,5 @@
 <template>
-  <a
-    class="photo-content"
-    v-bind:href="photo.photoSrcLarge"
-    v-if="!loadingImage"
-  >
+  <a class="photo-content" v-bind:href="photo.photoSrcLarge">
     <div class="photo-wrap">
       <picture>
         <source
@@ -32,7 +28,7 @@
 
 <script>
 export default {
-  props: ["photo", "loadingImage"],
+  props: ["photo"],
   methods: {
     previewImage(e) {
       // The browser tries to handle the image preview. Stop it!

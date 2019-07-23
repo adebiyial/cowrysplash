@@ -9,7 +9,6 @@
       <li class="photos" v-for="photo in photos" v-bind:key="photo.id">
         <Photo
           v-bind:photo="photo"
-          v-bind:loadingImage="loadingImage"
           @preview-image="$emit('preview-image', photo.id)"
         />
       </li>
@@ -22,7 +21,7 @@ import Photo from "./Photo";
 
 export default {
   name: "Gallery",
-  props: ["photos", "newSearch", "loadingImage"],
+  props: ["photos", "newSearch"],
   components: {
     Photo
   }

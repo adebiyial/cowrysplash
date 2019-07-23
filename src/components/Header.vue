@@ -119,6 +119,7 @@ export default {
         this.$emit("search-photos", this.photoDetails);
 
         this.loading = false;
+        // this.$emit("loading-photos", this.loading);
         this.resolveLoadingState();
       } catch (error) {
         alert(error);

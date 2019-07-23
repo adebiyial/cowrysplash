@@ -215,11 +215,17 @@ li {
   text-align: center;
 }
 
+#skeleton::before {
+  display: none;
+}
+
 #skeleton img {
-  opacity: 1;
+  opacity: 0;
 }
 
 #skeleton .author-details .author-name,
 #skeleton .author-details .photo-location {
-  color: white;
+  color: transparent;
+  background-color: #d7d7d7;
+  border-radius: 3px;
 }
