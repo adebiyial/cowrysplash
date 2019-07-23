@@ -1,9 +1,16 @@
 <template>
   <div id="app" class="photos-section">
-    <Header @search-photos="populatePhotoList" />
+    <Header
+      @search-photos="populatePhotoList"
+      @is-searching="resolveIsSearchingState"
+      @is-done-searching="resolveIsDoneSearchingState"
+      @is-new-search="resolveIsNewSearchState"
+    />
     <Gallery
       v-bind:photos="photos"
-      v-bind:newSearch="newSearch"
+      v-bind:isNewSearch="isNewSearch"
+      v-bind:isSearching="isSearching"
+      v-bind:isDoneSearching="isDoneSearching"
       @preview-image="previewImage"
     />
     <Modal
@@ -31,13 +38,14 @@ export default {
       photos: [],
       showModal: false,
       photo: {},
-      newSearch: true
+      isNewSearch: true,
+      isSearching: false,
+      isDoneSearching: false
     };
   },
   methods: {
     populatePhotoList(photoDetails) {
       this.photos = [...photoDetails];
-      this.newSearch = false;
     },
     previewImage(id) {
       this.photo = this.photos.find(photo => photo.id === id);
@@ -45,6 +53,30 @@ export default {
     },
     closeImagePreviewModal() {
       this.showModal = false;
+    },
+    resolveIsSearchingState(isSearching) {
+      this.isSearching = isSearching;
+
+      if (isSearching) {
+        this.isNewSearch = false;
+        this.isDoneSearching = false;
+      }
+    },
+    resolveIsDoneSearchingState(isDoneSearching) {
+      this.isDoneSearching = isDoneSearching;
+
+      if (isDoneSearching) {
+        this.isSearching = false;
+        this.isNewSearch = false;
+      }
+    },
+    resolveIsNewSearchState(isNewSearch) {
+      this.isNewSearch = isNewSearch;
+
+      if (isNewSearch) {
+        this.isSearching = false;
+        this.isDoneSearching = false;
+      }
     }
   }
 };

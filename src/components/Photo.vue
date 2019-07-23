@@ -31,8 +31,7 @@
 
 <script>
 export default {
-  props: ["photo"],
-
+  props: ["photo", "isImgInDom"],
   methods: {
     previewImage(e) {
       // The browser tries to handle the image preview. Stop it!
