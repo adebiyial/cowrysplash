@@ -1,5 +1,9 @@
 <template>
-  <a class="photo-content" v-bind:href="photo.photoSrcLarge">
+  <a
+    class="photo-content"
+    v-bind:href="photo.photoSrcLarge"
+    @click="previewImage"
+  >
     <div class="photo-wrap">
       <picture>
         <source
@@ -12,7 +16,6 @@
         />
         <img
           class="photo normal"
-          @click="previewImage"
           v-bind:src="photo.photoSrcSmall"
           v-bind:alt="photo.photoDesc"
           v-bind:data-photoId="photo.id"
