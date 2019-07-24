@@ -13,6 +13,7 @@
         v-else-if="this.loadingState.isNewSearch"
         class="search-form"
         @submit="searchPhotos"
+        @submit.prevent
       >
         <div class="search-icon">
           <svg viewBox="0 0 24 24">
@@ -82,8 +83,7 @@ export default {
       }
     },
 
-    async searchPhotos(e) {
-      e.preventDefault();
+    async searchPhotos() {
       try {
         // If the query is empty
         if (this.searchQuery.trim().length === 0) {

@@ -1,5 +1,10 @@
 <template>
-  <a class="photo-content" :href="photo.photoSrcLarge" @click="previewImage">
+  <a
+    class="photo-content"
+    :href="photo.photoSrcLarge"
+    @click="previewImage"
+    @click.prevent
+  >
     <div class="photo-wrap">
       <picture>
         <source :srcset="photo.photoSrcLarge" media="(min-width: 700px)" />
@@ -23,10 +28,7 @@
 export default {
   props: ["photo", "isImgInDom"],
   methods: {
-    previewImage(e) {
-      // The browser tries to handle the image preview. Stop it!
-      e.preventDefault();
-
+    previewImage() {
       this.$emit("preview-image", this.photo.id);
     }
   }
