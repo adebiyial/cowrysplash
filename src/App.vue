@@ -83,6 +83,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./styles/_variables.scss";
 @import "./styles/_normalize.scss";
 @import "./styles/global.scss";
 </style>
