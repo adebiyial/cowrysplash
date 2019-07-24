@@ -9,9 +9,9 @@
       <h1>searching...</h1>
     </div>
     <div v-else class="container">
-      <li class="photos" v-for="photo in photos" v-bind:key="photo.id">
+      <li class="photos" v-for="photo in photos" :key="photo.id">
         <Photo
-          v-bind:photo="photo"
+          :photo="photo"
           @preview-image="$emit('preview-image', photo.id)"
         />
       </li>

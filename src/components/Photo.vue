@@ -1,24 +1,14 @@
 <template>
-  <a
-    class="photo-content"
-    v-bind:href="photo.photoSrcLarge"
-    @click="previewImage"
-  >
+  <a class="photo-content" :href="photo.photoSrcLarge" @click="previewImage">
     <div class="photo-wrap">
       <picture>
-        <source
-          v-bind:srcset="photo.photoSrcLarge"
-          media="(min-width: 700px)"
-        />
-        <source
-          v-bind:srcset="photo.photoSrcSmall"
-          media="(max-width: 700px)"
-        />
+        <source :srcset="photo.photoSrcLarge" media="(min-width: 700px)" />
+        <source :srcset="photo.photoSrcSmall" media="(max-width: 700px)" />
         <img
           class="photo normal"
-          v-bind:src="photo.photoSrcSmall"
-          v-bind:alt="photo.photoDesc"
-          v-bind:data-photoId="photo.id"
+          :src="photo.photoSrcSmall"
+          :alt="photo.photoDesc"
+          :data-photoId="photo.id"
         />
       </picture>
     </div>

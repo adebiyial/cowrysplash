@@ -1,7 +1,7 @@
 <template>
   <div
     class="modal-root"
-    v-bind:id="this.show && 'show'"
+    :id="this.show && 'show'"
     @click="$emit('close-modal')"
   >
     <div class="modal">
@@ -13,7 +13,7 @@
         ></button>
         <div
           class="full-image-wrap"
-          v-bind:style="styleObj"
+          :style="styleObj"
           @click="$emit('close-modal')"
         ></div>
         <div class="modal-photo-details">

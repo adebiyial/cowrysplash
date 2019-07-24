@@ -7,15 +7,15 @@
       @is-new-search="resolveIsNewSearchState"
     />
     <Gallery
-      v-bind:photos="photos"
-      v-bind:isNewSearch="isNewSearch"
-      v-bind:isSearching="isSearching"
-      v-bind:isDoneSearching="isDoneSearching"
+      :photos="photos"
+      :isNewSearch="isNewSearch"
+      :isSearching="isSearching"
+      :isDoneSearching="isDoneSearching"
       @preview-image="previewImage"
     />
     <Modal
       v-if="this.showModal"
-      v-bind:photo="photo"
+      :photo="photo"
       @close-modal="closeImagePreviewModal"
     />
   </div>
