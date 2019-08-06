@@ -1,5 +1,9 @@
 # cowrysplash
 
+## Deployment - TL;DR
+
+The app is deployed to Netlify. Check it out at: [CowrySplash](https://cowrysplash-adebiyi-adedotun.netlify.com/)
+
 ## Project setup
 
 ```
@@ -31,7 +35,3 @@ yarn run serve
 ### 4. Image Modal ✔
 
 ![Feature Set 4 - show image modal](src/assets/images/fs4.jpg)
-
-## Deployment
-
-The app is deployed to Netlify. Check it out at: [CowrySplash](https://cowrysplash-adebiyi-adedotun.netlify.com/)
